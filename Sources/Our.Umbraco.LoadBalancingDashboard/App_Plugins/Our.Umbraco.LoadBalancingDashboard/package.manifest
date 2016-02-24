@@ -1,0 +1,6 @@
+﻿{
+	javascript : [
+		'~/App_Plugins/Our.Umbraco.LoadBalancingDashboard/resources.js',
+		'~/App_Plugins/Our.Umbraco.LoadBalancingDashboard/controllers.js'
+	]
+}
