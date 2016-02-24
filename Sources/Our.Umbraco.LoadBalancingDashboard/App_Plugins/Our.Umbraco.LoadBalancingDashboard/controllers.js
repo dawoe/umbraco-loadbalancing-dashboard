@@ -3,5 +3,12 @@
     'Our.Umbraco.LoadBalancindDashboard.LoadBalancingApiResource',
     function ($scope, loadBalancingApiResource) {
 
+        $scope.loadData = function() {
+            loadBalancingApiResource.getLoadBalancingType().then(function (data) {
+                $scope.loadbalanceType = data;
+            });
+        }
+
+        $scope.loadData();
     }
 ]);
