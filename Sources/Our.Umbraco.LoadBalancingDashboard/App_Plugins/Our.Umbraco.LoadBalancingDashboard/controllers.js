@@ -4,8 +4,8 @@
     function ($scope, loadBalancingApiResource) {
 
         $scope.loadData = function() {
-            loadBalancingApiResource.getLoadBalancingType().then(function (data) {
-                $scope.loadbalanceType = data;
+            loadBalancingApiResource.getLoadBalancingType().then(function (response) {
+                $scope.loadbalanceType = response.data;
             });
         }
 
