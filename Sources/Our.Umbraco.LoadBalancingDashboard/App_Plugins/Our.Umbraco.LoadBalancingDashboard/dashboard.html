@@ -1,3 +1,4 @@
 ﻿<div ng-controller="Our.Umbraco.LoadBalancindDashboard.Controller">
-    <span>{{loadbalanceType}}</span>
+    <span ng-if="loadbalanceType == '0'">Flexible loadbalancing</span>
+    <span ng-if="loadbalanceType == '1'">Traditional loadbalancing</span>
 </div>
