@@ -284,6 +284,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\controllers.js" />
     <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\dashboard.html" />
     <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\resources.js" />
   </ItemGroup>
