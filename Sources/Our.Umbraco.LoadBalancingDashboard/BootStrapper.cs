@@ -27,6 +27,8 @@
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
             ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
+
+            applicationContext.Services.
         }
 
         /// <summary>
