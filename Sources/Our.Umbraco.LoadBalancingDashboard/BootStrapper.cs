@@ -56,9 +56,9 @@
                                          }
                                      };
 
-            if (!e.ContainsKey("Our.Umbraco.LoadBalancingDashboard"))
+            if (!e.ContainsKey("OurUmbracoLoadBalancingDashboard"))
             {
-                e.Add("Our.Umbraco.LoadBalancingDashboard", mainDictionary);
+                e.Add("OurUmbracoLoadBalancingDashboard", mainDictionary);
             }
         }
     }
