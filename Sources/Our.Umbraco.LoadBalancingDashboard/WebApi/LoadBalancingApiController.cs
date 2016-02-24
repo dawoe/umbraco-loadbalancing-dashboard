@@ -13,7 +13,7 @@
     /// <summary>
     /// Load balancing dashboard api controller.
     /// </summary>
-    [PluginController("Our.Umbraco.LoadBalancingDashboard")]
+    [PluginController("OurUmbracoLoadBalancingDashboard")]
     public class LoadBalancingApiController : UmbracoAuthorizedApiController
     {
         /// <summary>
