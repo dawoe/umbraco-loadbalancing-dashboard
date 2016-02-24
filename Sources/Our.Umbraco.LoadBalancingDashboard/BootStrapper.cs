@@ -26,9 +26,7 @@
         /// <param name="applicationContext"> the Umbraco Application context</param>
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
-            ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
-
-            applicationContext.Services.
+            ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;            
         }
 
         /// <summary>
