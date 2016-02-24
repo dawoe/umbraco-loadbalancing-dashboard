@@ -271,6 +271,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BootStrapper.cs" />
     <Compile Include="Enums\LoadBalancingType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\LoadBalancingApiController.cs" />
