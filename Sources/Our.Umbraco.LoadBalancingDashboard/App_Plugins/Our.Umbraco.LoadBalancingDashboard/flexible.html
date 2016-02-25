@@ -1,3 +1,44 @@
 ﻿<div ng-controller="Our.Umbraco.LoadBalancindDashboard.FlexibleController">
-    <h1>Flexible loadbalancing</h1>
+    <div class="umb-sub-header">
+        <h1>Flexible loadbalancing</h1>
+    </div>
+
+    <div class="umb-listview">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('identity')">Identity</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'identity'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('address')">Address</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'address'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('registered')">Registered</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'registered'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('lastaccessed')">Last accessed</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'lastaccessed'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('ismaster')">Is Master</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'ismaster'"></i>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="s in servers | orderBy:predicate:reverse">
+                    <td  style="cursor: pointer">{{s.identity}}
+                    </td>
+                    <td  style="cursor: pointer">{{s.address}}</td>
+                    <td  style="cursor: pointer"><span ng-bind="s.registered | date:'dd/MM/yyyy HH:mm'"></span></td>
+                    <td  style="cursor: pointer"><span ng-bind="s.lastaccessed | date:'dd/MM/yyyy HH:mm'"></span></td>
+                    <td  style="cursor: pointer">{{s.ismaster}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

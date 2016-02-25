@@ -18,9 +18,22 @@ angular.module("umbraco").controller("Our.Umbraco.LoadBalancindDashboard.Flexibl
     'Our.Umbraco.LoadBalancindDashboard.LoadBalancingApiResource',
     function ($scope, loadBalancingApiResource) {
 
+        $scope.servers = {};
+
+        $scope.reverse = false;
+        $scope.predicate = 'identity';
+
         $scope.loadData = function () {
-           
+            loadBalancingApiResource.getFlexibleServers().then(function (response) {
+                $scope.servers = response.data;
+            });
         }
+
+        // order data
+        $scope.order = function (predicate) {
+            $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+            $scope.predicate = predicate;
+        };
 
         $scope.loadData();
     }
