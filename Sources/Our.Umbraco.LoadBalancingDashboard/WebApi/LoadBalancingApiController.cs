@@ -43,5 +43,18 @@
         {
             return AutoMapper.Mapper.Map<IEnumerable<FlexibleServerInfo>>(ApplicationContext.Services.ServerRegistrationService.GetActiveServers());           
         }
+
+        /// <summary>
+        /// Ges traditional server info.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerable{T}"/>.
+        /// </returns>
+        public IEnumerable<TraditionalServerInfo> GetTraditionalServerInfo()
+        {
+            return
+                AutoMapper.Mapper.Map<IEnumerable<TraditionalServerInfo>>(
+                    UmbracoConfig.For.UmbracoSettings().DistributedCall.Servers);
+        } 
     }
 }
