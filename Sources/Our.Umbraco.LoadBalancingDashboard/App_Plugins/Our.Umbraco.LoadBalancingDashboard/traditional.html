@@ -1,0 +1,43 @@
+﻿<div ng-controller="Our.Umbraco.LoadBalancindDashboard.TraditionalController">
+    <div class="umb-sub-header">
+        Your environment is using <a href="https://our.umbraco.org/documentation/Getting-Started/Setup/Server-Setup/load-balancing/traditional" target="_blank">traditional loadbalancing</a>
+    </div>
+
+    <div class="umb-listview">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('address')">Server address</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'address'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('name')">Server name</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'name'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('appid')">App Id</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'appid'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('protocol')">Force Protocol</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'protocol'"></i>
+                    </td>
+                    <td>
+                        <a href="#" prevent-default class="sortable" ng-click="order('portnumber')">Force portnumber</a>
+                        <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'portnumber'"></i>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="s in servers | orderBy:predicate:reverse">
+                    <td>{{s.address}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.appid}}</td>
+                    <td>{{s.protocol}}</td>
+                    <td>{{s.portnumber}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

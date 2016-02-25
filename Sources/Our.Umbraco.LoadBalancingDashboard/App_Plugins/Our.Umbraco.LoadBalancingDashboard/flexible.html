@@ -31,12 +31,11 @@
             </thead>
             <tbody>
                 <tr ng-repeat="s in servers | orderBy:predicate:reverse">
-                    <td  style="cursor: pointer">{{s.identity}}
-                    </td>
-                    <td  style="cursor: pointer">{{s.address}}</td>
-                    <td  style="cursor: pointer"><span ng-bind="s.registered | date:'dd/MM/yyyy HH:mm'"></span></td>
-                    <td  style="cursor: pointer"><span ng-bind="s.lastaccessed | date:'dd/MM/yyyy HH:mm'"></span></td>
-                    <td  style="cursor: pointer">{{s.ismaster}}</td>
+                    <td>{{s.identity}}</td>
+                    <td>{{s.address}}</td>
+                    <td><span ng-bind="s.registered | date:'dd/MM/yyyy HH:mm'"></span></td>
+                    <td><span ng-bind="s.lastaccessed | date:'dd/MM/yyyy HH:mm'"></span></td>
+                    <td>{{s.ismaster}}</td>
                 </tr>
             </tbody>
         </table>
