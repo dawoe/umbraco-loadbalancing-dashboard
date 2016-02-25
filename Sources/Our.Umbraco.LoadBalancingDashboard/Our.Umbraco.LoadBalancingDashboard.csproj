@@ -291,6 +291,7 @@
     <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\dashboard.html" />
     <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\flexible.html" />
     <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\resources.js" />
+    <Content Include="App_Plugins\Our.Umbraco.LoadBalancingDashboard\traditional.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

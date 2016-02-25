@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.Web.Http;
 
+    using AutoMapper;
+
     using Our.Umbraco.LoadBalancingDashboard.Enums;
 
     using global::Umbraco.Core.Configuration;
@@ -52,9 +54,16 @@
         /// </returns>
         public IEnumerable<TraditionalServerInfo> GetTraditionalServerInfo()
         {
-            return
-                AutoMapper.Mapper.Map<IEnumerable<TraditionalServerInfo>>(
-                    UmbracoConfig.For.UmbracoSettings().DistributedCall.Servers);
-        } 
+            var servers = UmbracoConfig.For.UmbracoSettings().DistributedCall.Servers;
+
+            var result = new List<TraditionalServerInfo>();
+
+            foreach (var server in servers)
+            {
+                result.Add(Mapper.Map<TraditionalServerInfo>(server));
+            }
+
+            return result;
+        }
     }
 }
