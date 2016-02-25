@@ -6,6 +6,9 @@
                 },
                 getFlexibleServers : function() {
                     return $http.get(Umbraco.Sys.ServerVariables.OurUmbracoLoadBalancingDashboard.LoadBalancingApi + "GetFlexibleServerInfo");
+                },
+                getTraditionalServers : function() {
+                    return $http.get(Umbraco.Sys.ServerVariables.OurUmbracoLoadBalancingDashboard.LoadBalancingApi + "GetTraditionalServerInfo");
                 }
             };
         });
