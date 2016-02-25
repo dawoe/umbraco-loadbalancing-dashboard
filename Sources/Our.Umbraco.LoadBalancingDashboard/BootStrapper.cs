@@ -5,6 +5,7 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
+    using global::Umbraco.Core.Configuration.UmbracoSettings;
     using global::Umbraco.Core.Models;
 
     using Our.Umbraco.LoadBalancingDashboard.Models;
@@ -38,6 +39,8 @@
                 .ForMember(dest => dest.IsMaster, opt => opt.MapFrom(src => src.IsMaster))
                 .ForMember(dest => dest.LastAccessed, opt => opt.MapFrom(src => src.Accessed))
                 .ForMember(dest => dest.Registered, opt => opt.MapFrom(src => src.Registered));
+
+            AutoMapper.Mapper.CreateMap<IServer, TraditionalServerInfo>();
         }
 
         /// <summary>
