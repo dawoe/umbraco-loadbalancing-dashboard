@@ -5,6 +5,9 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
+    using global::Umbraco.Core.Models;
+
+    using Our.Umbraco.LoadBalancingDashboard.Models;
     using Our.Umbraco.LoadBalancingDashboard.WebApi;
 
     using global::Umbraco.Core;
@@ -26,7 +29,15 @@
         /// <param name="applicationContext"> the Umbraco Application context</param>
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
-            ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;            
+            ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
+
+            AutoMapper.Mapper.CreateMap<IServerRegistration, FlexibleServerInfo>()
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.ServerAddress))
+                .ForMember(dest => dest.Identity, opt => opt.MapFrom(src => src.ServerIdentity))
+                .ForMember(dest => dest.IsActive, opt => opt.MapFrom(src => src.IsActive))
+                .ForMember(dest => dest.IsMaster, opt => opt.MapFrom(src => src.IsMaster))
+                .ForMember(dest => dest.LastAccessed, opt => opt.MapFrom(src => src.Accessed))
+                .ForMember(dest => dest.Registered, opt => opt.MapFrom(src => src.Registered));
         }
 
         /// <summary>
