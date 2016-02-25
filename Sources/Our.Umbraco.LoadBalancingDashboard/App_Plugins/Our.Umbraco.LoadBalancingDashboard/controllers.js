@@ -1,4 +1,4 @@
-﻿angular.module("umbraco").controller("Our.Umbraco.LoadBalancindDashboard.Controller", [
+﻿angular.module("umbraco").controller("Our.Umbraco.LoadBalancindDashboard.DashboardController", [
     '$scope',
     'Our.Umbraco.LoadBalancindDashboard.LoadBalancingApiResource',
     function ($scope, loadBalancingApiResource) {
