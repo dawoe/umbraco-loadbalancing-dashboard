@@ -68,6 +68,7 @@
 			<WebFiles Include="$(CoreProjectDir)\App_Plugins\**\*.*" />
 			<PackageFile Include="$(MSBuildProjectDirectory)\Package.xml" />
 			<NuSpecFile Include="$(MSBuildProjectDirectory)\package.nuspec" />
+			<TransFroms Include="$(MSBuildProjectDirectory)\nuget-transforms\*.*" />
 		</ItemGroup>
 		<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildDir)\bin" />
 		<Copy SourceFiles="@(WebFiles)" DestinationFolder="$(BuildDir)\App_Plugins\%(RecursiveDir)" />
@@ -75,6 +76,7 @@
 		<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 		<Copy SourceFiles="@(WebFiles)" DestinationFolder="$(BuildNuGetDir)\App_Plugins\%(RecursiveDir)" />
 		<Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
+		<Copy SourceFiles="@(TransFroms)" DestinationFolder="$(BuildNuGetDir)\nuget-transforms\%(RecursiveDir)" />
   </Target>
   
   <!-- MANIFEST -->

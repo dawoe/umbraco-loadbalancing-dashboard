@@ -17,6 +17,11 @@
         <tags>umbraco</tags>
         <dependencies>
             <dependency id="UmbracoCms.Core" version="7.3.0" />
-        </dependencies>
+        </dependencies>		
     </metadata>    
+	<files>			
+		<file src="App_Plugins\**\*.*" target="Content\App_Plugins" />
+		<file src="nuget-transforms\Dashboard.config.install.xdt" target="Content\config\Dashboard.config.install.xdt" />
+		<file src="nuget-transforms\Dashboard.config.uninstall.xdt" target="Content\config\Dashboard.config.uninstall.xdt" />			
+	</files>
 </package>
