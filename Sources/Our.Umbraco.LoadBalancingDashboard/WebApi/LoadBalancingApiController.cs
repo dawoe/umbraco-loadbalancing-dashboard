@@ -1,5 +1,6 @@
 ﻿namespace Our.Umbraco.LoadBalancingDashboard.WebApi
 {
+    using System.Collections.Generic;
     using System.Web.Http;
 
     using Our.Umbraco.LoadBalancingDashboard.Enums;
@@ -9,6 +10,8 @@
     using global::Umbraco.Web.Mvc;
 
     using global::Umbraco.Web.WebApi;
+
+    using Our.Umbraco.LoadBalancingDashboard.Models;
 
     /// <summary>
     /// Load balancing dashboard api controller.
@@ -28,6 +31,17 @@
             return UmbracoConfig.For.UmbracoSettings().DistributedCall.Enabled
                        ? LoadBalancingType.Traditional
                        : LoadBalancingType.Flexible;
+        }
+
+        /// <summary>
+        /// Get flexible servers info
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerable{T}"/>.
+        /// </returns>
+        public IEnumerable<FlexibleServerInfo> GetFlexibleServerInfo()
+        {
+            return AutoMapper.Mapper.Map<IEnumerable<FlexibleServerInfo>>(ApplicationContext.Services.ServerRegistrationService.GetActiveServers());           
         }
     }
 }
