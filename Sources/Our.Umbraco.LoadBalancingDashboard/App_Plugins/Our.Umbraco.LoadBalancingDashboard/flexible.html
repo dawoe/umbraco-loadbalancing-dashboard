@@ -1,6 +1,6 @@
 ﻿<div ng-controller="Our.Umbraco.LoadBalancindDashboard.FlexibleController">
     <div ng-if="isSingleServer" class="umb-sub-header">
-        Your environment is configured to run as a single server
+        Your environment is configured to run as a single server. This configured in the appSetting with the key <code>umbracoDisableElectionForSingleServer</code> in the web.config file
     </div>
     <div ng-if="!isSingleServer">
         <div class="umb-sub-header">
