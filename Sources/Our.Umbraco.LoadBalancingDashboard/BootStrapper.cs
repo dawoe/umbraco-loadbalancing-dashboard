@@ -1,6 +1,8 @@
 ﻿namespace Our.Umbraco.LoadBalancingDashboard
 {
     using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -69,6 +71,22 @@
                                                  controller => controller.GetLoadBalancingType())
                                          }
                                      };
+
+            var isElectionDisabledForSingleServer = false;
+
+            var settingKey = "umbracoDisableElectionForSingleServer";
+
+            if (ConfigurationManager.AppSettings.AllKeys.Contains(settingKey))
+            {
+                var attemptBool = ConfigurationManager.AppSettings[settingKey].TryConvertTo<bool>();
+
+                if (attemptBool.Success)
+                {
+                    isElectionDisabledForSingleServer = attemptBool.Result;
+                }
+            }
+
+            mainDictionary.Add("IsSingleServer", isElectionDisabledForSingleServer);
 
             if (!e.ContainsKey("OurUmbracoLoadBalancingDashboard"))
             {
