@@ -19,6 +19,7 @@ angular.module("umbraco").controller("Our.Umbraco.LoadBalancindDashboard.Flexibl
     function ($scope, loadBalancingApiResource) {
 
         $scope.servers = {};
+        $scope.isSingleServer = Umbraco.Sys.ServerVariables.OurUmbracoLoadBalancingDashboard.IsSingleServer;
 
         $scope.reverse = false;
         $scope.predicate = 'identity';
@@ -35,7 +36,13 @@ angular.module("umbraco").controller("Our.Umbraco.LoadBalancindDashboard.Flexibl
             $scope.predicate = predicate;
         };
 
-        $scope.loadData();
+        function init() {
+            if ($scope.isSingleServer === false) {
+                $scope.loadData();
+            }           
+        }
+
+        init();
     }
 ]);
 
