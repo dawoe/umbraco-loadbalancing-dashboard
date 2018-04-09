@@ -14,7 +14,7 @@
     using Our.Umbraco.LoadBalancingDashboard.WebApi;
 
     using global::Umbraco.Core;
-
+    using global::Umbraco.Core.Sync;
     using global::Umbraco.Web;
 
     using global::Umbraco.Web.UI.JavaScript;
@@ -86,7 +86,21 @@
                 }
             }
 
-            mainDictionary.Add("ServerRole", ApplicationContext.Current.Services.ServerRegistrationService.GetCurrentServerRole().ToString());
+            var serverRole = ServerRole.Unknown;
+
+            var registrar = ServerRegistrarResolver.Current.Registrar;
+
+            if (registrar is IServerRegistrar2)
+            {
+                // explictit master election has happende
+                serverRole = ((IServerRegistrar2)registrar).GetCurrentServerRole();
+            }
+            else
+            {
+                serverRole = ApplicationContext.Current.Services.ServerRegistrationService.GetCurrentServerRole();
+            }
+
+            mainDictionary.Add("ServerRole", serverRole.ToString());
 
             mainDictionary.Add("IsSingleServer", isElectionDisabledForSingleServer);
 
