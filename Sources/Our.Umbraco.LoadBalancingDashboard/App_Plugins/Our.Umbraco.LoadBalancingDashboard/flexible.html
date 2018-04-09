@@ -8,7 +8,7 @@
         </div>
 
         <div class="umb-listview">
-            <table class="table table-striped">
+            <table class="table table-striped" ng-if="servers.length > 0">
                 <thead>
                 <tr>
                     <td>
@@ -43,6 +43,9 @@
                 </tr>
                 </tbody>
             </table>
+            <umb-empty-state ng-if="servers.length == 0">
+                We could not find any registered servers in the database. This probably means that you used <a href="https://our.umbraco.org/documentation/Getting-Started/Setup/Server-Setup/load-balancing/flexible-advanced#explicit-master-scheduling-server" target="_blank">explicit master election.</a>
+            </umb-empty-state>
         </div>
     </div>
 </div>
