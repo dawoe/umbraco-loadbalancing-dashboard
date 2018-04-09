@@ -1,4 +1,7 @@
 ﻿<div ng-controller="Our.Umbraco.LoadBalancindDashboard.DashboardController">
+    <div class="umb-sub-header">
+        Your current server has the server role : {{serverRole}}
+    </div>
     <div ng-if="loadbalanceType == '0'" ng-include="'../App_Plugins/Our.Umbraco.LoadBalancingDashboard/flexible.html'"></div>
     <div ng-if="loadbalanceType == '1'" ng-include="'../App_Plugins/Our.Umbraco.LoadBalancingDashboard/traditional.html'"></div>
 </div>

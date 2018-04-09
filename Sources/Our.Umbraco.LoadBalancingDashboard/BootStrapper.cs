@@ -86,6 +86,8 @@
                 }
             }
 
+            mainDictionary.Add("ServerRole", ApplicationContext.Current.Services.ServerRegistrationService.GetCurrentServerRole().ToString());
+
             mainDictionary.Add("IsSingleServer", isElectionDisabledForSingleServer);
 
             if (!e.ContainsKey("OurUmbracoLoadBalancingDashboard"))

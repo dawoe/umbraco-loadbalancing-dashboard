@@ -3,6 +3,8 @@
     'Our.Umbraco.LoadBalancindDashboard.LoadBalancingApiResource',
     function ($scope, loadBalancingApiResource) {
 
+        $scope.serverRole = Umbraco.Sys.ServerVariables.OurUmbracoLoadBalancingDashboard.ServerRole;
+
         $scope.loadData = function() {
             loadBalancingApiResource.getLoadBalancingType().then(function (response) {
                 $scope.loadbalanceType = response.data;
