@@ -1,31 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <umbPackage>
-	<info>
-		<package>
-			<name>Loadbalancing Information Dashboard</name>
-			<version>0.0.0</version>
-			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
-			<url>https://our.umbraco.org/projects/backoffice-extensions/loadbalancing-information-dashboard/</url>
-			<requirements>
-				<major>0</major>
-				<minor>0</minor>
-				<patch>0</patch>
-			</requirements>
-		</package>
-		<author>
-			<name>Dave Woestenborghs</name>
-			<website>https://github.com/dawoe/umbraco-loadbalancing-dashboard</website>
-		</author>
-		<readme><![CDATA[After installing this package you get a new dashboard in the developer section that displays your loadbalancing setup type and the registered servers]]></readme>
-	</info>
+	  <info>
+    <package>
+      <name></name>
+      <version>0.0.0</version>
+      <license url=""></license>
+      <url></url>
+      <requirements>
+        <major>0</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+      <iconUrl></iconUrl>
+    </package>
+    <author>
+      <name></name>
+      <website></website>
+    </author>
+    <readme><![CDATA[]]></readme>
+  </info>
 
-	<DocumentTypes />
-	<Templates />
-	<Stylesheets />
-	<Macros />
-	<DictionaryItems />
-	<Languages />
-	<DataTypes />
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
 
 	<Actions>
 		<Action runat="install"  

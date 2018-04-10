@@ -1,11 +1,15 @@
 ﻿<div ng-controller="Our.Umbraco.LoadBalancindDashboard.FlexibleController">
-    <div class="umb-sub-header">
-        Your environment is using <a href="https://our.umbraco.org/documentation/Getting-Started/Setup/Server-Setup/load-balancing/flexible" target="_blank">flexible loadbalancing</a>
+    <div ng-if="isSingleServer" class="umb-sub-header">
+        Your environment is configured to run as a single server. This configured in the appSetting with the key <code>umbracoDisableElectionForSingleServer</code> in the web.config file
     </div>
+    <div ng-if="!isSingleServer">
+        <div class="umb-sub-header">
+            Your environment is using <a href="https://our.umbraco.org/documentation/Getting-Started/Setup/Server-Setup/load-balancing/flexible" target="_blank">flexible loadbalancing</a>
+        </div>
 
-    <div class="umb-listview">
-        <table class="table table-striped">
-            <thead>
+        <div class="umb-listview">
+            <table class="table table-striped" ng-if="servers.length > 0">
+                <thead>
                 <tr>
                     <td>
                         <a href="#" prevent-default class="sortable" ng-click="order('identity')">Identity</a>
@@ -28,8 +32,8 @@
                         <i class="icon" ng-class="{'icon-navigation-up': reverse, 'icon-navigation-down': !reverse}" ng-show="predicate == 'ismaster'"></i>
                     </td>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr ng-repeat="s in servers | orderBy:predicate:reverse">
                     <td>{{s.identity}}</td>
                     <td>{{s.address}}</td>
@@ -37,7 +41,11 @@
                     <td><span ng-bind="s.lastaccessed | date:'dd/MM/yyyy HH:mm'"></span></td>
                     <td>{{s.ismaster}}</td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            <div ng-if="servers.length == 0">
+                We could not find any registered servers in the database. This probably means that you used <a href="https://our.umbraco.org/documentation/Getting-Started/Setup/Server-Setup/load-balancing/flexible-advanced#explicit-master-scheduling-server" target="_blank">explicit master election.</a>
+            </div>
+        </div>
     </div>
 </div>

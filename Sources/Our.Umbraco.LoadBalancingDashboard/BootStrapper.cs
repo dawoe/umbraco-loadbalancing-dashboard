@@ -1,6 +1,8 @@
 ﻿namespace Our.Umbraco.LoadBalancingDashboard
 {
     using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -12,7 +14,7 @@
     using Our.Umbraco.LoadBalancingDashboard.WebApi;
 
     using global::Umbraco.Core;
-
+    using global::Umbraco.Core.Sync;
     using global::Umbraco.Web;
 
     using global::Umbraco.Web.UI.JavaScript;
@@ -69,6 +71,38 @@
                                                  controller => controller.GetLoadBalancingType())
                                          }
                                      };
+
+            var isElectionDisabledForSingleServer = false;
+
+            var settingKey = "umbracoDisableElectionForSingleServer";
+
+            if (ConfigurationManager.AppSettings.AllKeys.Contains(settingKey))
+            {
+                var attemptBool = ConfigurationManager.AppSettings[settingKey].TryConvertTo<bool>();
+
+                if (attemptBool.Success)
+                {
+                    isElectionDisabledForSingleServer = attemptBool.Result;
+                }
+            }
+
+            var serverRole = ServerRole.Unknown;
+
+            var registrar = ServerRegistrarResolver.Current.Registrar;
+
+            if (registrar is IServerRegistrar2)
+            {
+                // explictit master election has happende
+                serverRole = ((IServerRegistrar2)registrar).GetCurrentServerRole();
+            }
+            else
+            {
+                serverRole = ApplicationContext.Current.Services.ServerRegistrationService.GetCurrentServerRole();
+            }
+
+            mainDictionary.Add("ServerRole", serverRole.ToString());
+
+            mainDictionary.Add("IsSingleServer", isElectionDisabledForSingleServer);
 
             if (!e.ContainsKey("OurUmbracoLoadBalancingDashboard"))
             {

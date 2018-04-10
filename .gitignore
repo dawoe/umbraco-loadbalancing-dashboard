@@ -31,3 +31,6 @@ packages/
 
 Packaging/NugetBuild/
 Packaging/Package/
+Packaging/UmbracoBuild/
+artifacts/
+Sources/.vs/
