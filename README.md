@@ -16,8 +16,8 @@ Dashboard for the Umbraco backend that shows the loadbalancing configuration
 |**Release**|[![Our Umbraco project page](https://img.shields.io/badge/our-umbraco-orange.svg)](https://our.umbraco.org/projects/backoffice-extensions/loadbalancing-information-dashboard/) 
 |**Pre-release**| [![AppVeyor Artifacts](https://img.shields.io/badge/appveyor-umbraco-orange.svg)](https://ci.appveyor.com/project/dawoe/umbraco-loadbalancing-dashboard/build/artifacts)
 
-## Buy me a beer ##
+## Support this package ##
 
-If you like this package and use it in your website, consider giving me a small donation through paypal.me for maintaining this package.
+If you like this package and use it in your website, consider becoming a patreon to support ongoing maintenance
 
-[![Donate](https://img.shields.io/badge/donate-paypal.me-blue.svg)](https://www.paypal.me/dawoe21)
+[https://www.patreon.com/dawoe](https://t.co/TBsvTMnOLB)
